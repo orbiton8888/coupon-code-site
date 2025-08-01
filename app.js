@@ -1,35 +1,35 @@
+// מאזין לאירוע של שליחת הטופס
 document.getElementById('couponForm').addEventListener('submit', function(event) {
-    event.preventDefault();  // עוצר את שליחת הטופס
+    event.preventDefault();  // עוצר את שליחת הטופס (מונע רענון דף)
+
     const url = document.getElementById('siteUrl').value.trim();  // מקבל את ה-URL שהמשתמש הזין
-    
+
     // קודם כל, נוודא שה-URL תקין
     if (!isValidURL(url)) {
         showError('הכנס כתובת אתר תקינה');  // הודעת שגיאה אם ה-URL לא תקין
         return;
     }
-    
+
     // אם ה-URL תקין, מתחילים את החיפוש אחרי קופון
     showLoading(true);  // הצגת הודעת טעינה
-    getCouponCode(url);
+    getCouponCode(url);  // חיפוש קוד קופון
 });
 
-// פונקציה שתאמת את ה-URL
+// פונקציה שתאמת את ה-URL (אם הוא תקין)
 function isValidURL(url) {
-    const pattern = /^(ftp|http|https):\/\/[^ "]+$/;
+    const pattern = /^(ftp|http|https):\/\/[^ "]+$/;  // תבנית לאימות URL
     return pattern.test(url);  // אם ה-URL מתאים לתבנית, הוא תקין
 }
 
-// פונקציה שמביאה קוד קופון
+// פונקציה שמביאה קוד קופון עבור URL נתון
 function getCouponCode(url) {
-    // כאן צריך להיות החיבור ל-API או חיפוש בקוד קופון
-    // נניח כרגע שמחזירים קוד קופון סטטי לדוגמה:
+    // כאן כדאי לחבר ל-API או לפונקציה שמחזירה קוד קופון, כרגע נעשה שימוש בקוד קופון סטטי לדוגמה
     const couponCode = "CUPON2025";  // קוד קופון לדוגמה
     
-    // אם יש בעיה בהשגת הקופון, נציג הודעה מתאימה
+    // אם לא נמצא קופון או יש בעיה, נציג הודעת שגיאה
     if (!couponCode) {
         showError('לא נמצא קופון לאתר זה');
     } else {
-        // אם יש קופון, נציג את התוצאה
         showError('');  // לא מציגים הודעות שגיאה
         showLoading(false);  // מסתירים את הודעת הטעינה
         document.getElementById('couponResult').innerHTML = `
@@ -38,7 +38,7 @@ function getCouponCode(url) {
     }
 }
 
-// פונקציה שמציגה הודעת שגיאה
+// פונקציה שמציגה הודעת שגיאה במידה ויש
 function showError(message) {
     const errorContainer = document.getElementById('couponResult');
     if (message) {
@@ -52,7 +52,7 @@ function showError(message) {
 function showLoading(isLoading) {
     const loadingContainer = document.getElementById('couponResult');
     if (isLoading) {
-        loadingContainer.innerHTML = `<p>מחפשים קופון... אנא המתן.</p>`;  // הצגת הודעת טעינה
+        loadingContainer.innerHTML = `<p style="color: gray;">מחפשים קופון... אנא המתן.</p>`;  // הודעת טעינה
     } else {
         loadingContainer.innerHTML = '';  // מסתירים את הודעת הטעינה
     }
