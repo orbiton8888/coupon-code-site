@@ -1,10 +1,4 @@
-/* Reset כללי */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* הגדרות כלליות */
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f7fa;
@@ -12,86 +6,33 @@ body {
   line-height: 1.6;
 }
 
-header {
-  background-color: #2c3e50;
-  color: white;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header .logo img {
-  height: 50px;
-}
-
-.language-selector select {
-  background-color: #34495e;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  font-size: 16px;
-}
-
-.container {
-  width: 80%;
-  max-width: 1000px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  text-align: center;
-  color: #2c3e50;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-form label {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-form input {
-  width: 80%;
-  padding: 10px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-form button {
-  background-color: #27ae60;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #2ecc71;
-}
-
-.result {
+#couponResult {
   margin-top: 20px;
-  background-color: #ecf0f1;
-  padding: 20px;
+  padding: 15px;
   border-radius: 5px;
+  background-color: #ecf0f1;
+  border: 1px solid #ccc;
 }
 
-footer {
-  text-align: center;
+/* הודעות שגיאה */
+#couponResult p {
+  margin: 0;
   padding: 10px;
-  background-color: #2c3e50;
-  color: white;
-  margin-top: 40px;
+  font-size: 16px;
+}
+
+#couponResult p[style*="color: red"] {
+  background-color: #f2dede;  /* צבע רקע אדום בהיר להודעות שגיאה */
+  color: #a94442;  /* צבע טקסט אדום */
+  border: 1px solid #ebccd1;  /* גבול אדום */
+  border-radius: 4px;
+}
+
+/* הודעת טעינה */
+#couponResult p[style*="color: gray"] {
+  background-color: #d9edf7;
+  color: #31708f;
+  border: 1px solid #bce8f1;
+  border-radius: 4px;
+  font-weight: bold;
 }
