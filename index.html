@@ -4,19 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>קוד קופונים</title>
+  <link rel="stylesheet" href="styles.css">  <!-- קישור לקובץ CSS לעיצוב -->
+  <script src="app.js" defer></script> <!-- קובץ JavaScript -->
 </head>
 <body>
-  <h1>ברוך הבא לאתר קוד קופונים!</h1>
-  <form id="couponForm">
-    <label for="siteUrl">הכנס כתובת אתר:</label>
-    <input type="url" id="siteUrl" placeholder="הכנס כתובת אתר" required>
-    <button type="submit">הצג קופונים</button>
-  </form>
-  <div id="couponResult">
-    <p>הקופון שלך יוצג כאן.</p>
-  </div>
+  <!-- לוגו ומעבר לשפות -->
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="לוגו האתר">
+    </div>
+    <div class="language-selector">
+      <select id="language">
+        <option value="he">עברית</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+  </header>
 
-  <script src="app.js"></script>
+  <!-- תוכן עיקרי -->
+  <main>
+    <div class="container">
+      <h1>ברוך הבא לאתר קוד קופונים!</h1>
+      <form id="couponForm">
+        <label for="siteUrl">הכנס כתובת אתר:</label>
+        <input type="url" id="siteUrl" placeholder="הכנס כתובת אתר" required>
+        <button type="submit">הצג קופונים</button>
+      </form>
+
+      <!-- אזור התוצאה -->
+      <div id="couponResult" class="result">
+        <p>הקופון שלך יוצג כאן.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 קוד קופונים - כל הזכויות שמורות</p>
+  </footer>
 </body>
 </html>
-
