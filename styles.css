@@ -1,38 +1,91 @@
 /* הגדרות כלליות */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f7fa;
-  color: #333;
-  line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    line-height: 1.6;
+    text-align: center;
 }
 
 #couponResult {
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 5px;
-  background-color: #ecf0f1;
-  border: 1px solid #ccc;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #ecf0f1;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease-in-out;
 }
 
 /* הודעות שגיאה */
 #couponResult p {
-  margin: 0;
-  padding: 10px;
-  font-size: 16px;
+    margin: 0;
+    padding: 10px;
+    font-size: 16px;
 }
 
 #couponResult p[style*="color: red"] {
-  background-color: #f2dede;  /* צבע רקע אדום בהיר להודעות שגיאה */
-  color: #a94442;  /* צבע טקסט אדום */
-  border: 1px solid #ebccd1;  /* גבול אדום */
-  border-radius: 4px;
+    background-color: #f2dede;  /* צבע רקע אדום בהודעות שגיאה */
+    color: #a94442;  /* צבע טקסט אדום */
+    border: 1px solid #ebccd1;  /* גבול אדום */
+    border-radius: 4px;
 }
 
 /* הודעת טעינה */
 #couponResult p[style*="color: gray"] {
-  background-color: #d9edf7;
-  color: #31708f;
-  border: 1px solid #bce8f1;
-  border-radius: 4px;
-  font-weight: bold;
+    background-color: #d9edf7;
+    color: #31708f;
+    border: 1px solid #bce8f1;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* תבנית עבור רשימה של קופונים */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #ffffff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+li:hover {
+    transform: scale(1.05);
+}
+
+strong {
+    color: #2c3e50;
+}
+
+h3 {
+    color: #2c3e50;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+hr {
+    margin: 10px 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+/* אנימציה כפתור */
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
 }
