@@ -1,34 +1,31 @@
 document.getElementById('couponForm').addEventListener('submit', function(event) {
     event.preventDefault();  // עוצר את שליחת הטופס
-    const url = document.getElementById('siteUrl').value;  // מקבל את ה-URL מהמשתמש
-    getCouponCode(url);  // קורא לפונקציה שמביאה את קוד הקופון
+    const url = document.getElementById('siteUrl').value;  // מקבל את ה-URL שהמשתמש הזין
+    getCouponCode(url);  // פונקציה שמביאה קוד קופון
 });
 
 function getCouponCode(url) {
-    const apiKey = 'your-api-key';  // הכנס את ה-API Key שלך כאן
-    const apiUrl = `https://api.couponapi.com/v1/coupons?site=${url}&apiKey=${apiKey}`;
+    // כרגע, נותנים קוד קופון ידני לדוגמה
+    let couponCode = "CUPON2025";  // קוד קופון לדוגמה
 
-    // מבצע קריאה ל-API
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            if (data && data.coupons && data.coupons.length > 0) {
-                // אם קיבלנו קופונים, נציג אותם
-                const coupon = data.coupons[0].code;  // מניחים שהקופון הראשון הוא הכי טוב
-                document.getElementById('couponResult').innerHTML = `
-                    <p>הקופון שלך לאתר ${url} הוא: <strong>${coupon}</strong></p>
-                `;
-            } else {
-                // אם לא נמצא קופון
-                document.getElementById('couponResult').innerHTML = `
-                    <p>לא נמצאו קופונים לאתר ${url}.</p>
-                `;
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching coupon data:', error);
-            document.getElementById('couponResult').innerHTML = `
-                <p>אירעה שגיאה בעת קבלת הקופון. נסה שוב מאוחר יותר.</p>
-            `;
-        });
+    // הצגת התוצאה למשתמש
+    document.getElementById('couponResult').innerHTML = `
+        <p>הקופון שלך לאתר ${url} הוא: <strong>${couponCode}</strong></p>
+    `;
 }
+
+// טיפול בשינוי שפה
+document.getElementById('language').addEventListener('change', function(event) {
+    const lang = event.target.value;
+    if (lang === 'en') {
+        document.querySelector('h1').textContent = "Welcome to Coupon Code Site!";
+        document.querySelector('label').textContent = "Enter Website URL:";
+        document.querySelector('button').textContent = "Get Coupons";
+        document.querySelector('footer p').textContent = "© 2025 Coupon Codes - All Rights Reserved";
+    } else {
+        document.querySelector('h1').textContent = "ברוך הבא לאתר קוד קופונים!";
+        document.querySelector('label').textContent = "הכנס כתובת אתר:";
+        document.querySelector('button').textContent = "הצג קופונים";
+        document.querySelector('footer p').textContent = "© 2025 קוד קופונים - כל הזכויות שמורות";
+    }
+});
